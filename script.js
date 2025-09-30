@@ -1,4 +1,4 @@
-const jsonURL = "https://raw.githubusercontent.com/<Razak777>/portfolio/main/data/portfolioData.json";
+const jsonURL = "https://raw.githubusercontent.com/Razak777/portfolio/main/data/portfolioData.json";
 
 fetch(jsonURL)
   .then(response => response.json())
