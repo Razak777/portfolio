@@ -1,1 +1,5 @@
+[
+  { "name": "Arduino", "image": "images/arduino.png" },
+  { "name": "ESP32", "image": "images/esp32.png" }
+]
 
