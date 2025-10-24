@@ -1,110 +1,47 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f0;
-    color: #333;
-    scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: #0077b6;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: #90e0ef;
+  background-color: #2b2d42;
+  color: white;
+  padding: 40px 0;
 }
 
 section {
-    padding: 50px 20px;
-    text-align: center;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+}
+
+#skills, #certifications {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill-card, .cert-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 150px;
+  padding: 10px;
+}
+
+.skill-card img, .cert-card img {
+  width: 100%;
+  border-radius: 8px;
 }
 
 h2 {
-    margin-bottom: 20px;
-    color: #0077b6;
-}
-
-/* Containers */
-#skills-container, #projects-container, #certificates-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Card Style */
-.card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 220px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-/* Fade-in animation */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #0077b6;
-    color: white;
-    margin-top: 50px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    #skills-container, #projects-container, #certificates-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-    }
+  color: #2b2d42;
+  border-bottom: 2px solid #2b2d42;
+  display: inline-block;
+  padding-bottom: 5px;
 }
