@@ -1,73 +1,40 @@
-const baseURL = 'https://razak777.github.io/portfolio/';
+// Load About Info
+fetch('data/about.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('name').textContent = data.name;
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('description').textContent = data.description;
+  });
 
-// Function to reveal elements on scroll
-function revealOnScroll() {
-    const fades = document.querySelectorAll('.fade');
-    fades.forEach(fade => {
-        const top = fade.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (top < windowHeight - 50) {
-            fade.classList.add('show');
-        }
+// Load Skills
+fetch('data/skills.json')
+  .then(response => response.json())
+  .then(skills => {
+    const skillsContainer = document.getElementById('skills');
+    skills.forEach(skill => {
+      const div = document.createElement('div');
+      div.classList.add('skill-card');
+      div.innerHTML = `
+        <img src="${skill.image}" alt="${skill.name}">
+        <p>${skill.name}</p>
+      `;
+      skillsContainer.appendChild(div);
     });
+  });
 
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        if (top < window.innerHeight - 50) {
-            card.style.opacity = 1;
-            card.style.transform = 'translateY(0)';
-        }
+// Load Certifications
+fetch('data/certifications.json')
+  .then(response => response.json())
+  .then(certifications => {
+    const certContainer = document.getElementById('certifications');
+    certifications.forEach(cert => {
+      const div = document.createElement('div');
+      div.classList.add('cert-card');
+      div.innerHTML = `
+        <img src="${cert.image}" alt="${cert.title}">
+        <p>${cert.title}</p>
+      `;
+      certContainer.appendChild(div);
     });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', () => {
-    revealOnScroll();
-
-    // Load Skills
-    fetch(baseURL + 'skills.json')
-    .then(res => res.json())
-    .then(skills => {
-        const container = document.getElementById('skills-container');
-        skills.forEach(skill => {
-            const div = document.createElement('div');
-            div.className = 'card';
-            div.textContent = skill.name;
-            container.appendChild(div);
-        });
-    });
-
-    // Load Projects
-    fetch(baseURL + 'projects/projects.json')
-    .then(res => res.json())
-    .then(projects => {
-        const container = document.getElementById('projects-container');
-        projects.forEach(project => {
-            const div = document.createElement('div');
-            div.className = 'card';
-            div.innerHTML = `
-                <img src="${baseURL}projects/${project.image}" alt="${project.title}">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-            `;
-            container.appendChild(div);
-        });
-    });
-
-    // Load Certificates
-    fetch(baseURL + 'certificates/certificates.json')
-    .then(res => res.json())
-    .then(certs => {
-        const container = document.getElementById('certificates-container');
-        certs.forEach(cert => {
-            const div = document.createElement('div');
-            div.className = 'card';
-            div.innerHTML = `
-                <img src="${baseURL}certificates/${cert.image}" alt="${cert.title}">
-                <h3>${cert.title}</h3>
-            `;
-            container.appendChild(div);
-        });
-    });
-});
+  });
